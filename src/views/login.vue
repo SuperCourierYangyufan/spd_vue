@@ -8,9 +8,9 @@
             </div>
             <div>
                 <div v-if="this.showrelogin">
-                    <input name="username" type="text"  value="用户名" onfocus="this.value=''" onblur="if(this.value==''){this.value='用户名'}" v-model="user.username">
+                    <input  style="height: 50px" name="username" type="text"  value="用户名" onfocus="this.value=''" onblur="if(this.value==''){this.value='用户名'}" v-model="user.username">
                     <span id="password_text" onclick="this.style.display='none';document.getElementById('password').style.display='block';document.getElementById('password').focus();" >密码</span>
-                    <input v-model="user.password" name="password" type="password" id="password" style="display:none;" onblur="if(this.value==''){document.getElementById('password_text').style.display='block';this.style.display='none'};"/>
+                    <input   v-model="user.password" name="password" type="password" id="password" style="display:none;height: 50px" onblur="if(this.value==''){document.getElementById('password_text').style.display='block';this.style.display='none'};"/>
                     <input value="登录" style="width:100%;" type="submit" @click="showModel">
                 </div>
                 <div v-if="!this.showrelogin">

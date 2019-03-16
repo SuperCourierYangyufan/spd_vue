@@ -5,6 +5,7 @@ import ajax_file from './ajax_file'
 //跨域前缀
 export const BASE_URL = '/spd'
 
+
 //ajax列表
 //-----------------------------------------基础-------------------------------------------------
 //登入
@@ -36,6 +37,16 @@ export const exportDictionaryExcel = (filename)=> ajax_file(BASE_URL+'/managemen
 export const showRoles = () =>ajax(BASE_URL+"/management/showRoles");
 //保存权限角色
 export const saveRole = (role) => ajax(BASE_URL+`/management/saveRole`,role);
+//保存医院资料
+export const saveHospital = (hospital)=>ajax_obj(BASE_URL+"/management/saveHospital",hospital,'POST');
+//医院菜单条件分页
+export const searchHospital = (hospitalSo) =>ajax_obj(BASE_URL+'/management/searchHospital',hospitalSo,'POST');
+//根据id删除医院
+export const deleteHospital = (id)=>ajax(BASE_URL+`/management/deleteHospital/${id}`);
+//查询所有医院的名字和id
+export const searchHospitalIdAndName = ()=>ajax(BASE_URL+"/management/searchHospitalIdAndName");
+
+
 
 
 

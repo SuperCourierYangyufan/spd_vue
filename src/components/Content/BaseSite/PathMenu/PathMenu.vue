@@ -212,6 +212,7 @@
             },
             //当页面改变时
             changIndex(){
+                this.menu.pageNum = this.page.index;
                 this.loading = true;
                 this.searchAjax();
             },

@@ -8,7 +8,9 @@ import PathMenu_set from './components/Content/BaseSite/PathMenu/PathMenu_set'
 import Dictionary from './components/Content/BaseSite/Dictionary/Dictionary'
 import Dictionary_set from './components/Content/BaseSite/Dictionary/Dictionary_set'
 import PrivilegeRole from './components/Content/BaseSite/PrivilegeRole/PrivilegeRole'
-
+import Hospital from './components/Content/BaseSite/Hospital/hospital'
+import hospital_set from './components/Content/BaseSite/Hospital/hospital_set'
+import UserRole from './components/Content/BaseSite/UserRole/userRole'
 Vue.use(Router)
 
 const router = new Router({
@@ -44,7 +46,19 @@ const router = new Router({
               {
                   path: '/core/PrivilegeRole',
                   component: PrivilegeRole
-              }
+              },
+              {
+                  path: '/core/hospital',
+                  component: Hospital
+              },
+              {
+                  path: '/core/hospital/set',
+                  component: hospital_set
+              },
+              {
+                  path: '/core/userRole',
+                  component: UserRole
+              },
           ]
       },
       {

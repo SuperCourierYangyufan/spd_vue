@@ -1,4 +1,5 @@
 import axios from 'axios'
+axios.defaults.withCredentials=true;
 export default function ajax_file(url,data,filename){
 
     return new Promise(function (resolve,reject) {
