@@ -43,7 +43,7 @@
         <div>
             <Row>
                 <i-col offset="8" span="7" style="margin-top: 1%;margin-left: 30%">
-                    <Page class="page" :total="page.total"  :current.sync="page.pageNum" show-total  />
+                    <Page class="page" :total="page.total"  :current.sync="page.pageNum" show-total @on-change="searchList()" />
                 </i-col>
             </Row>
         </div>

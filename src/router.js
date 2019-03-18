@@ -11,6 +11,7 @@ import PrivilegeRole from './components/Content/BaseSite/PrivilegeRole/Privilege
 import Hospital from './components/Content/BaseSite/Hospital/hospital'
 import hospital_set from './components/Content/BaseSite/Hospital/hospital_set'
 import UserRole from './components/Content/BaseSite/UserRole/userRole'
+import UserRole_set from './components/Content/BaseSite/UserRole/userRole_set'
 Vue.use(Router)
 
 const router = new Router({
@@ -58,6 +59,10 @@ const router = new Router({
               {
                   path: '/core/userRole',
                   component: UserRole
+              },
+              {
+                  path: '/core/userRole/set',
+                  component: UserRole_set
               },
           ]
       },

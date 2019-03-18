@@ -4,7 +4,7 @@
         <div>
             <div class="actionLine">
                 <div class="actionButton">
-                    <Button type="primary" icon="md-add" shape="circle" >添加用户角色</Button>
+                    <Button type="primary" icon="md-add" shape="circle" @click="$router.replace('/core/userRole/set')">添加用户角色</Button>
                 </div>
             </div>
         </div>
@@ -15,14 +15,14 @@
                     <span class="optionFont">角色名:</span>
                 </i-col>
                 <i-col span="3"  class="OptionClass">
-                    <Input  />
+                    <Input  v-model="userSo.name"/>
 
                 </i-col>
                 <i-col span="1" offset="2">
                     <span class="optionFont" >角色医院:</span>
                 </i-col>
                 <i-col span="3"  class="OptionClass" >
-                    <Select>
+                    <Select v-model="userSo.hospitalId">
                         <Option v-for="(i,index) in hospitalList" :key="index" :value="i.id">{{i.name}}</Option>
                     </Select>
                 </i-col>
@@ -30,11 +30,11 @@
                     <span class="optionFont" >角色权限:</span>
                 </i-col>
                 <i-col span="3"  class="OptionClass">
-                    <Select>
+                    <Select v-model="userSo.roleid">
                         <Option v-for="(i,index) in roleList" :key="index" :value="i.id">{{i.rolename}}</Option>
                     </Select>
                 </i-col>
-                <i-col span="5"><Button type="primary" shape="circle" icon="ios-search">查询</Button></i-col>
+                <i-col span="5"><Button type="primary" shape="circle" icon="ios-search" @click="searchList">查询</Button></i-col>
             </Row>
         </div>
         <!--菜单列表-->
@@ -48,7 +48,7 @@
         <div>
             <Row>
                 <i-col offset="8" span="7" style="margin-top: 1%;margin-left: 30%">
-                    <Page class="page" :total="page.total"  :current.sync="page.index" show-total />
+                    <Page class="page" :total="page.total"  :current.sync="page.pageNum" show-total @on-change="searchList()"/>
                 </i-col>
             </Row>
         </div>
@@ -56,7 +56,7 @@
 </template>
 
 <script>
-    import {searchHospitalIdAndName,getRoleAll} from '../../../../api/index'
+    import {searchHospitalIdAndName,getRoleAll,searchUserList} from '../../../../api/index'
     export default {
         name: "userRole",
         data(){
@@ -76,16 +76,22 @@
                     },
                     {
                         title: '注册时间',
-                        key: 'registerTime'
+                        key: 'time'
                     },
                     {
                         title: '操作',
                         slot: 'action'
                     },
                 ],
-                page:{},
+                page:{
+                    total:1,
+                    pageNum:1,
+                    pageSize:10
+                },
                 hospitalList:[],
-                roleList:[]
+                roleList:[],
+                userSo:{},
+                userList:[]
             }
         },
         mounted() {
@@ -96,7 +102,29 @@
             getRoleAll().then(res=>{
                 this.roleList = res.data;
             });
+            this.searchList()
 
+        },
+        methods:{
+            //根据条件查询列表
+            searchList(){
+                //收集数据
+                this.userSo.pageSize = this.page.pageSize;
+                this.userSo.pageNum = this.page.pageNum;
+                //ajax
+                searchUserList(this.userSo).then(res=>{
+                    if(res.code == 0){
+                        res.data.list.forEach(u=>{
+                            let time = new Date(u.registertime);
+                            u.time = time.getFullYear()+"-"+(time.getMonth()+1)+"-"+time.getDate();
+                        });
+                        this.userList = res.data.list;
+                        this.page.total = res.data.total;
+                    }else{
+                        this.$Message.error(res.message);
+                    }
+                })
+            }
         }
     }
 </script>

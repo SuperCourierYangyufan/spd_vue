@@ -45,6 +45,8 @@ export const searchHospital = (hospitalSo) =>ajax_obj(BASE_URL+'/management/sear
 export const deleteHospital = (id)=>ajax(BASE_URL+`/management/deleteHospital/${id}`);
 //查询所有医院的名字和id
 export const searchHospitalIdAndName = ()=>ajax(BASE_URL+"/management/searchHospitalIdAndName");
+//根据条件查询用户列表
+export const searchUserList = (userSo)=>ajax_obj(BASE_URL+"/management/searchUserList",userSo,'POST')
 
 
 
