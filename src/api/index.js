@@ -14,6 +14,8 @@ export const loginmodle = (username,password) =>ajax(BASE_URL+`/login`,{username
 export const logoutmodle = () =>ajax(BASE_URL+`/logout`);
 //查询所有的权限
 export const getRoleAll = ()=>ajax(BASE_URL+'/getRoleAll');
+//检查用户是否登入
+export const getCurrentUserInfo = ()=>ajax(BASE_URL+'/isLogin');
 //-----------------------------------------管理权限----------------------------------------------
 //菜单列表查询分页
 export const searchMenu = (menu) =>ajax_obj(BASE_URL+'/management/searchMenu',menu,'POST');

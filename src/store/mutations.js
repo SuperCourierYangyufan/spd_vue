@@ -1,7 +1,6 @@
 import {
     LOGINMODLE,
     LOGOUTMODLE,
-    CHANGECURRENTROLE
 } from  './mutations-type'
 
 export default {

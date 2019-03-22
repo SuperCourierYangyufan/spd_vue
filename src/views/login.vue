@@ -32,13 +32,15 @@
 
 <script>
     import '../common/css/login.css'
-    import {mapState} from 'vuex'
+    import {mapState,mapActions} from 'vuex'
     export default {
         name: "login",
         mounted(){
-            if(this.loginmodle.code == 0&&this.loginmodle.user!=null){
-                this.showrelogin = false;
-            }
+            this.getCurrentUserInfo(res=>{
+                if(this.loginmodle.code == 0&&this.loginmodle.user!=null){
+                    this.showrelogin = false;
+                }
+            });
         },
         data(){
             return{
@@ -55,6 +57,7 @@
             ...mapState(['loginmodle'])
         },
         methods:{
+            ...mapActions(['getCurrentUserInfo']),
             showModel(){
                 //归0
                 this.sliderModel = 0;
