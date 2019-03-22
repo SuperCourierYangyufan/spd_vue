@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from './views/login'
 import Core from './views/core'
 import error404 from './views/404'
+import check from './views/check'
 import PathMenu from './components/Content/BaseSite/PathMenu/PathMenu'
 import PathMenu_set from './components/Content/BaseSite/PathMenu/PathMenu_set'
 import Dictionary from './components/Content/BaseSite/Dictionary/Dictionary'
@@ -70,6 +71,10 @@ const router = new Router({
           path: '/404',
           component: error404
       },
+      {
+          path: '/check',
+          component: check
+      }
   ]
 })
 //匹配跳转

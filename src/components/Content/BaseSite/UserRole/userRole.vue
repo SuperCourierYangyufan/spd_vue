@@ -22,7 +22,7 @@
                     <span class="optionFont" >角色医院:</span>
                 </i-col>
                 <i-col span="3"  class="OptionClass" >
-                    <Select v-model="userSo.hospitalId">
+                    <Select v-model="userSo.hospitalid">
                         <Option v-for="(i,index) in hospitalList" :key="index" :value="i.id">{{i.name}}</Option>
                     </Select>
                 </i-col>
@@ -41,6 +41,11 @@
         <div>
             <Table  :loading="loading" :columns="title" :data="userList" width="1500" style="margin: 0 auto">
                 <template slot-scope="{ row, index }" slot="action">
+                    <div >
+                        <Button type="success" @click="showUser(row)">明细</Button>
+                        &nbsp;
+                        <Button type="error" @click="removeUser(row)">删除</Button>
+                    </div>
                 </template>
             </Table>
         </div>
@@ -53,10 +58,11 @@
             </Row>
         </div>
     </div>
+
 </template>
 
 <script>
-    import {searchHospitalIdAndName,getRoleAll,searchUserList} from '../../../../api/index'
+    import {searchHospitalIdAndName,getRoleAll,searchUserList,deleteUserById} from '../../../../api/index'
     export default {
         name: "userRole",
         data(){
@@ -124,6 +130,24 @@
                         this.$Message.error(res.message);
                     }
                 })
+            },
+            removeUser(row){
+                deleteUserById(row.id).then(res=>{
+                    if(res.code == 0){
+                        this.userList = this.userList.filter(u=>row.id!=u.id);
+                        this.$Message.success(res.message);
+                    }else{
+                        this.$Message.error(res.message);
+                    }
+                })
+            },
+            showUser(row){
+                let data = {
+                    path: "/core/userRole/set",
+                    query: row
+                };
+
+                this.$router.push(data);
             }
         }
     }

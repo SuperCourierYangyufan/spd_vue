@@ -46,7 +46,13 @@ export const deleteHospital = (id)=>ajax(BASE_URL+`/management/deleteHospital/${
 //查询所有医院的名字和id
 export const searchHospitalIdAndName = ()=>ajax(BASE_URL+"/management/searchHospitalIdAndName");
 //根据条件查询用户列表
-export const searchUserList = (userSo)=>ajax_obj(BASE_URL+"/management/searchUserList",userSo,'POST')
+export const searchUserList = (userSo)=>ajax_obj(BASE_URL+"/management/searchUserList",userSo,'POST');
+//发送验证码请求
+export const sendMsg = () =>ajax(BASE_URL+"/management/sendMsg");
+//保存用户数据
+export const saveUser = (userSo)=>ajax_obj(BASE_URL+"/management/saveUser",userSo,"POST");
+//根据id删除用户
+export const deleteUserById = (id) => ajax(BASE_URL+`/management/deleteUserById/${id}`);
 
 
 

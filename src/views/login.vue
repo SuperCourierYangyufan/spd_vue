@@ -95,20 +95,21 @@
             sliderModel(val){
                 if(val==100){
                     //进度环
-                    this.$Spin.show({
-                        render: (h) => {
-                            return h('div', [
-                                h('Icon', {
-                                    'class': 'demo-spin-icon-load',
-                                    props: {
-                                        type: 'ios-loading',
-                                        size: 18
-                                    }
-                                }),
-                                h('div', '努力加载中！')
-                            ])
-                        }
-                    });
+                    this.$Spin.show();
+                    // this.$Spin.show({
+                    //     render: (h) => {
+                    //         return h("div", [
+                    //             h("Icon", {
+                    //                 "class": "demo-spin-icon-load",
+                    //                 props: {
+                    //                     type: "ios-loading",
+                    //                     size: 26
+                    //                 }
+                    //             }),
+                    //             h("div", "努力加载中！")
+                    //         ])
+                    //     }
+                    // });
                     //进度条拉到最大了
                     //归0
                     val = 0;
@@ -132,7 +133,7 @@
     .reButton{
         margin-top: 15px;
     }
-    .demo-spin-icon-load{
-        animation: ani-demo-spin 1s linear infinite;
-    }
+.demo-spin-icon-load{
+    animation: ani-demo-spin 1s linear infinite;
+}
 </style>
