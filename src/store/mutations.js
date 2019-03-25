@@ -1,6 +1,7 @@
 import {
     LOGINMODLE,
     LOGOUTMODLE,
+    CHANGECURRENT
 } from  './mutations-type'
 
 export default {
@@ -10,4 +11,7 @@ export default {
     [LOGOUTMODLE](state){
         state.loginmodle = {};
     },
+    [CHANGECURRENT](state,{current}){
+        state.current = current;
+    }
 }

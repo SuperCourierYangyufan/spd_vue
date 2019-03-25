@@ -29,7 +29,7 @@
     import  userTitle from '../components/Title/userTitle'
     import  menuTitle from '../components/Title/menuTitle'
     import leftMenu from '../components/Menu/leftMenu'
-
+    import {mapState,mapActions} from 'vuex'
     export default {
         name: "core",
         data(){
@@ -39,7 +39,11 @@
                 currentPath:[]
             }
         },
+        computed:{
+            ...mapState(['current'])
+        },
         methods:{
+            ...mapActions(['changeCurr']),
             receiveRole(role){
                 this.currentRole = role
             },
@@ -66,7 +70,17 @@
             leftMenu
         },
         mounted(){
-            this.currentPath = [this.currentRole.rolename,'我的信息']
+            this.currentPath = [this.currentRole.rolename,'我的信息'];
+            //改变当前信息
+            if(this.current.role == null){
+                let current = {
+                    role :this.currentRole
+                };
+                this.current = current;
+            }else{
+                this.current.role = this.currentRole;
+            }
+            this.changeCurr(this.current);
         },
         watch:{
             currentRole(val){
@@ -74,6 +88,7 @@
                 // if(this.currentMenu.pathname!=null){
                 //      menuList = this.currentMenu.pathname.split(',');
                 // }
+                this.changeCurr(val);
                 this.changePath(val.rolename,menuList)
             },
             currentMenu(val){

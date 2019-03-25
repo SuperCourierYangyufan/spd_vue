@@ -73,25 +73,25 @@
 </script>
 
 <style scoped>
-    .actionLine{
-        width: 100%;
-        height: 35.19px;
-        background-color: rgba(0,255,255,0.1);
-        margin-bottom: 2%;
-    }
-    .actionButton Button{
-        margin-left: 1.5%;
-    }
-    .tableFont{
-        color: #27A9E3;
-        margin-bottom: 0.5%;
+    /*.actionLine{*/
+        /*width: 100%;*/
+        /*height: 35.19px;*/
+        /*background-color: rgba(0,255,255,0.1);*/
+        /*margin-bottom: 2%;*/
+    /*}*/
+    /*.actionButton Button{*/
+        /*margin-left: 1.5%;*/
+    /*}*/
+    /*.tableFont{*/
+        /*color: #27A9E3;*/
+        /*margin-bottom: 0.5%;*/
 
-    }
-    b{
-        font-size: 16px;
-    }
+    /*}*/
+    /*b{*/
+        /*font-size: 16px;*/
+    /*}*/
 
-    .tablerow{
-        margin-bottom: 1.5%;
-    }
+    /*.tablerow{*/
+        /*margin-bottom: 1.5%;*/
+    /*}*/
 </style>

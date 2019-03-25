@@ -55,6 +55,12 @@ export const sendMsg = () =>ajax(BASE_URL+"/management/sendMsg");
 export const saveUser = (userSo)=>ajax_obj(BASE_URL+"/management/saveUser",userSo,"POST");
 //根据id删除用户
 export const deleteUserById = (id) => ajax(BASE_URL+`/management/deleteUserById/${id}`);
+//-----------------------------------------业务模块----------------------------------------------
+//保存商品资料
+export const saveGood = (goods) => ajax_obj(BASE_URL+"/mainroom/saveGood",goods,"POST");
+//分页查询商品资料
+export const searchGoods = (goodsSo) => ajax_obj(BASE_URL+"/mainroom/searchGoods",goodsSo,"POST");
+
 
 
 

@@ -133,6 +133,7 @@
                         this.hospitalList = this.hospitalList.filter(i=>{
                             return i.id!=hospital.id;
                         });
+                        this.page.total--;
                         this.$Message.success(res.message)
                     }else{
                         this.$Message.error(res.message)
@@ -144,23 +145,23 @@
 </script>
 
 <style scoped>
-    .optionFont{
-        font-size: 15px;
-        line-height: 30px;
-    }
-    .page{
-        text-align: center;
-    }
+    /*.optionFont{*/
+        /*font-size: 15px;*/
+        /*line-height: 30px;*/
+    /*}*/
+    /*.page{*/
+        /*text-align: center;*/
+    /*}*/
 
 
 
-    .actionLine{
-        width: 100%;
-        height: 35.19px;
-        background-color: rgba(0,255,255,0.1);
-        margin-bottom: 2%;
-    }
-    .actionButton Button{
-        margin-left: 1.5%;
-    }
+    /*.actionLine{*/
+        /*width: 100%;*/
+        /*height: 35.19px;*/
+        /*background-color: rgba(0,255,255,0.1);*/
+        /*margin-bottom: 2%;*/
+    /*}*/
+    /*.actionButton Button{*/
+        /*margin-left: 1.5%;*/
+    /*}*/
 </style>

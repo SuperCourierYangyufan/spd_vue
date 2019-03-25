@@ -1,6 +1,7 @@
 import {
     LOGINMODLE,
     LOGOUTMODLE,
+    CHANGECURRENT
 } from "./mutations-type";
 //这里导入的为函数封装
 import {
@@ -10,6 +11,11 @@ import {
 } from '../api/index'
 
 export default{
+
+     changeCurr({commit,state},current){
+      commit(CHANGECURRENT,{current});
+    },
+
 
     async getCurrentUserInfo({commit,state},callback){
       const result = await getCurrentUserInfo();
