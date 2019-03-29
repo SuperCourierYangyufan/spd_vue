@@ -60,6 +60,8 @@ export const deleteUserById = (id) => ajax(BASE_URL+`/management/deleteUserById/
 export const saveGood = (goods) => ajax_obj(BASE_URL+"/mainroom/saveGood",goods,"POST");
 //分页查询商品资料
 export const searchGoods = (goodsSo) => ajax_obj(BASE_URL+"/mainroom/searchGoods",goodsSo,"POST");
+//根据ID删除商品
+export const removeGood =(id)=> ajax(BASE_URL+`/mainroom/removeGood/${id}`);
 
 
 

@@ -89,7 +89,7 @@
                            this.$router.replace("/core/secondary/cargoManagement")
                        }
                    }else{
-                       this.$Message.error(res.message)
+                       this.$Message.error(res.message);
                    }
                 });
             }
@@ -103,6 +103,12 @@
             searchDictionary(dictionarySo).then(res=>{
                 if(res.code == 0){
                     this.dictionaryList = res.data.list;
+                }
+            }).finally(res=>{
+                if(this.$route.query.id!=null){
+                    this.$route.query.typeid = parseInt(this.$route.query.typeid);
+                    this.goods = this.$route.query;
+
                 }
             });
         }

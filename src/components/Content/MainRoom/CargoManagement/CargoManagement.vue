@@ -46,6 +46,11 @@
         <div>
             <Table  :columns="title" :data="goodList" width="1500" style="margin: 0 auto">
                 <template slot-scope="{ row, index }" slot="action">
+                    <div >
+                        <Button type="success" @click="showGoods(row)">明细</Button>
+                        &nbsp;
+                        <Button type="error" @click="RemoveGood(row)">删除</Button>
+                    </div>
                 </template>
             </Table>
         </div>
@@ -62,7 +67,7 @@
 
 <script>
     import {mapState} from 'vuex'
-    import {searchGoods} from '../../../../api/index'
+    import {searchGoods,removeGood} from '../../../../api/index'
     export default {
         name: "CargoManagement",
         data(){
@@ -126,7 +131,27 @@
                         this.page.total = res.data.total;
                     }
                 });
+            },
+            RemoveGood(row){
+                removeGood(row.id).then(res=>{
+                    if(res.code == "0"){
+                        //删除成功
+                        this.goodList = this.goodList.filter(i=>i.id!=row.id);
+                        this.$Message.success(res.message);
+                        this.page.total--;
+                    }else{
+                        this.$Message.error(res.message)
+                    }
+                })
+            },
+            showGoods(row){
+                let data = {
+                    query: row,
+                    path: "/core/storeroom/cargoManagement/set"
+                };
+                this.$router.push(data);
             }
+
         }
     }
 </script>
