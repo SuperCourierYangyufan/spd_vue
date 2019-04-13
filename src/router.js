@@ -15,6 +15,8 @@ import UserRole from './components/Content/BaseSite/UserRole/userRole'
 import UserRole_set from './components/Content/BaseSite/UserRole/userRole_set'
 import CargoManagement from './components/Content/MainRoom/CargoManagement/CargoManagement'
 import CargoManagement_set from './components/Content/MainRoom/CargoManagement/CargoManagement_set'
+import StorageAcceptance from './components/Content/MainRoom/StorageAcceptance/StorageAcceptance'
+import WarehousingApplication from './components/Content/MainRoom/WarehousingApplication/WarehousingApplication'
 Vue.use(Router)
 
 const router = new Router({
@@ -78,6 +80,14 @@ const router = new Router({
               {
                   path: '/core/storeroom/cargoManagement/set',
                   component: CargoManagement_set
+              },
+              {
+                  path: '/core/storageAcceptance',
+                  component: StorageAcceptance
+              },
+              {
+                path: '/core/storeroom/WarehousingApplication',
+                  component:WarehousingApplication
               }
 
           ]

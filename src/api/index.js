@@ -62,6 +62,16 @@ export const saveGood = (goods) => ajax_obj(BASE_URL+"/mainroom/saveGood",goods,
 export const searchGoods = (goodsSo) => ajax_obj(BASE_URL+"/mainroom/searchGoods",goodsSo,"POST");
 //根据ID删除商品
 export const removeGood =(id)=> ajax(BASE_URL+`/mainroom/removeGood/${id}`);
+//查询订单列表
+export const searchOrders = (orderSo)=> ajax_obj(BASE_URL+"/mainroom/searchOrders",orderSo,"POST");
+//查询订单详情
+export const showItem= (orderDetailSo)=>ajax_obj(BASE_URL+`/mainroom/showItem/`,orderDetailSo,"POST");
+//修改接收数量
+export const changeReceivable = (OrderDetails)=>ajax_obj(BASE_URL+"/mainroom/changeReceivable",OrderDetails,"POST");
+//查询商品库存信息
+export const searchStock = (searchStock)=>ajax_obj(BASE_URL+"/mainroom/searchStock",searchStock,"POST");
+//保存申请单
+export const saveRequestForm = (transmissionSoList)=>ajax_obj(BASE_URL+"/mainroom/saveRequestForm",transmissionSoList,"POST");
 
 
 
